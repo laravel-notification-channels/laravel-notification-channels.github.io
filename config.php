@@ -26,7 +26,7 @@ return [
      *
      */
 
-    'enableBlog' => true,
+    'enableBlog' => false,
 
     /**
      * --------------------------------------------------------------------------
@@ -60,7 +60,7 @@ return [
      *
      */
 
-    'siteName' => 'Katana',
+    'siteName' => 'Laravel Notification Channels',
 
-    'siteDescription' => 'Yet another awesome site.',
+    'siteDescription' => '',
 ];

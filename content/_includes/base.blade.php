@@ -27,6 +27,10 @@
     <span></span>
     </span>
 
+    <div class="nav-center">
+        <h1 class="nav-item title is-4">Laravel Notification Channels</h1>
+    </div>
+
     <div class="nav-right nav-menu">
         <span class="nav-item">
           <a class="button">
