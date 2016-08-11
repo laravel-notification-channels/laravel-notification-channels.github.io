@@ -102,5 +102,29 @@ footer {
   background: #f9f9f9;
   padding: 30px;
 }
+.wow {
+  padding: 100px 0;
+  background: url("../noisy_net.png");
+  margin-bottom: 60px;
+  color: #16d19c;
+  text-align: center;
+}
+.wow h1 {
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+.wow h2 {
+  color: #dcdcdc;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 200;
+  margin: 10px 0 40px;
+}
+.wow i {
+  color: #fff;
+}
+.wow a {
+  color: #86bbba;
+}
 
 /*# sourceMappingURL=all.css.map */
