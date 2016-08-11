@@ -1,133 +1,106 @@
 html {
-    font: 62.5%/1.65 "Open Sans", sans-serif;
-    box-sizing: content-box;
+  font: 62.5%/1.65 "Open Sans", sans-serif;
+  box-sizing: content-box;
 }
-
 body {
-    padding-bottom: 40px;
-    font-size: 1.3rem;
-    line-height: 22px;
-    color: #323336;
+  font-size: 1.3rem;
+  line-height: 22px;
+  color: #4e4e4e;
 }
-
 a {
-    color: #5193B1;
-    text-decoration: none;
+  color: #0AB5A5;
+  text-decoration: none;
 }
-
+a:hover {
+  color: #08887c;
+  text-decoration: none;
+}
 h1 {
-    line-height: 30px;
+  line-height: 30px;
+  margin: 30px 0;
 }
-
-.clearfix:before, .clearfix:after {
-    display: table;
-    content: " ";
+h2 {
+  font-weight: 400;
+  font-size: 25px;
+  margin: 60px 0 25px;
 }
-
+.clearfix:before,
 .clearfix:after {
-    clear: both;
+  display: table;
+  content: " ";
+}
+.clearfix:after {
+  clear: both;
+}
+#header {
+  padding: 10px 0;
+  border-bottom: solid 6px #0AB5A5;
+  background: url("../crossword.png");
+  margin-bottom: 60px;
+}
+#header img {
+  display: inline-block;
+  height: 40px;
+}
+#header h3 {
+  display: inline-block;
+  line-height: 40px;
+  margin: 0 0 0 20px;
+  vertical-align: middle;
+}
+#header .btn {
+  margin-top: 4px;
+}
+.menu-label {
+  border-bottom: dashed 1px #e1e1e1;
+}
+.menu-list {
+  padding: 0;
+  list-style: none;
+}
+.realContent {
+  border-left: dashed 1px #e1e1e1;
+}
+@media (min-width: 1200px) {
+  .realContent {
+    padding: 0 130px;
+  }
+}
+.realContent h1:first-child {
+  margin-top: 0;
+  margin-bottom: 50px;
+  font-size: 50px;
+  font-weight: 100;
+}
+code {
+  font-size: 1.2rem !important;
+}
+.alert {
+  border-radius: 0;
+  border: none;
+}
+.alert-danger {
+  background-color: #fddddd;
+  color: #933432;
+}
+.alert-warning {
+  background-color: #fef6dd;
+  color: #957d32;
+}
+.alert-success {
+  background-color: #cff5f2;
+  color: #0a7c71;
+}
+.alert-info {
+  background-color: #daeffd;
+  color: #2b6a94;
+}
+footer {
+  border-top: solid 3px #f2f2f2;
+  margin-top: 40px;
+  text-align: center;
+  background: #f9f9f9;
+  padding: 30px;
 }
 
-.wrapper {
-    position: relative;
-    min-height: 60px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-nav {
-    border-bottom: #e2edf2 1px solid;
-    padding: 10px 0;
-    z-index: 700;
-    width: 100%;
-}
-
-nav strong {
-    position: absolute;
-    font-size: 1.5rem;
-    top: 20px;
-    left: 0;
-}
-
-nav ul {
-    position: absolute;
-    list-style: none;
-    padding: 0;
-    top: 20px;
-    margin: 0;
-    right: 0;
-}
-
-nav ul li {
-    position: relative;
-    padding-left: 20px;
-    font-size: 1.2rem;
-    float: left;
-}
-
-nav a {
-    color: #323336;
-}
-
-.welcome {
-    background: #e2edf2;
-    margin-bottom: 30px;
-    text-align: center;
-    height: 200px;
-}
-
-.welcome h1 {
-    padding-top: 75px;
-    margin: 0 0 10px;
-}
-
-.left-side {
-    width: 63.26531%;
-    float: left;
-}
-
-.right-side {
-    width: 30.61224%;
-    float: right;
-}
-
-/** SOURCE: https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ **/
-blockquote {
-    quotes: "\201C" "\201D" "\2018" "\2019";
-    border-left: 10px solid #cdd7dc;
-    background: #e8f3f8;
-    padding: 0.5em 10px;
-    margin: 1.5em 10px;
-}
-
-blockquote:before {
-    vertical-align: -0.4em;
-    margin-right: 0.25em;
-    content: open-quote;
-    line-height: 0.1em;
-    font-size: 4em;
-    color: #cdd7dc;
-}
-
-blockquote p {
-    display: inline;
-}
-
-article {
-    margin-bottom: 30px;
-}
-
-.pagination {
-    border-top: #e2edf2 1px solid;
-    padding-top: 30px;
-    margin-top: 30px;
-}
-
-img {
-    max-width: 100%;
-}
-
-.m-t-30 {
-    margin-top: 30px;
-}
 /*# sourceMappingURL=all.css.map */
