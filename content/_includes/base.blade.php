@@ -16,29 +16,43 @@
 
 <body>
 
-<div id="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="https://avatars1.githubusercontent.com/u/20937037?v=3&s=200"
-                     alt="Laravel Notification Channels">
+@if($currentUrlPath == '/')
+    <div class="wow">
+        <h1>Laravel Notification Channels</h1>
+        <h2>A collection of custom drivers for Laravel 5.3</h2>
+        <a href="https://github.com/laravel-notification-channels">
+            GitHub
+        </a>
+        <i>&nbsp&nbsp.&nbsp&nbsp</i>
+        <a href="https://packagist.org/packages/laravel-notification-channels">
+            Packagist
+        </a>
+    </div>
+@else
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://avatars1.githubusercontent.com/u/20937037?v=3&s=200"
+                         alt="Laravel Notification Channels">
 
-                <h3>Laravel Notification Channels</h3>
-            </div>
-            <div class="col-md-6 text-right">
-                <a class="btn btn-default">
-                    <span class="icon"><i class="fa fa-fw fa-github"></i></span>
-                    <span>GitHub</span>
-                </a>
+                    <h3>Laravel Notification Channels</h3>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a class="btn btn-default" href="https://github.com/laravel-notification-channels">
+                        <span class="icon"><i class="fa fa-fw fa-github"></i></span>
+                        <span>GitHub</span>
+                    </a>
 
-                <a class="btn btn-default">
-                    <span class="icon"><i class="fa fa-fw fa-archive"></i></span>
-                    <span>Packagist</span>
-                </a>
+                    <a class="btn btn-default" href="https://packagist.org/packages/laravel-notification-channels/">
+                        <span class="icon"><i class="fa fa-fw fa-archive"></i></span>
+                        <span>Packagist</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+@endif
 
 <div class="container">
 

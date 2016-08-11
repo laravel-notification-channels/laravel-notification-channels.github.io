@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <title>Laravel Notification Channels </title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/prism.css">
+    <link rel="stylesheet" href="/assets/css/all.css">
+</head>
+
+<body>
+
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://avatars1.githubusercontent.com/u/20937037?v=3&s=200"
+                         alt="Laravel Notification Channels">
+
+                    <h3>Laravel Notification Channels</h3>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a class="btn btn-default" href="https://github.com/laravel-notification-channels">
+                        <span class="icon"><i class="fa fa-fw fa-github"></i></span>
+                        <span>GitHub</span>
+                    </a>
+
+                    <a class="btn btn-default" href="https://packagist.org/packages/laravel-notification-channels/">
+                        <span class="icon"><i class="fa fa-fw fa-archive"></i></span>
+                        <span>Packagist</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-2">
+            <p class="menu-label">General</p>
+<ul class="menu-list">
+    <li><a href="/">About</a></li>
+</ul>
+
+            
+<p class="menu-label">Push / Webpush</p>
+<ul class="menu-list">
+    <li><a href="/pusher-push-notifications/">Pusher Push Notifications</a></li>
+</ul>
+
+                    </div>
+        <div class="col-md-10 realContent">
+                        <p>This package makes it easy to send <a href="https://pusher.com/docs/push_notifications">Pusher push notifications</a> with Laravel 5.3.</p>
+<h2>Installation</h2>
+<p>You can install the package via composer:</p>
+<pre><code class="language-bash">composer require laravel-notification-channels/pusher-push-notifications</code></pre>
+<p>You must install the service provider:</p>
+<pre><code class="language-php">// config/app.php
+'providers' =&gt; [
+    ...
+    NotificationChannels\PusherPushNotifications\Provider::class,
+];</code></pre>
+<h2>Usage</h2>
+<p>Now you can use the channel in your <code>via()</code> method inside the Notification class.</p>
+<pre><code class="language-php">use NotificationChannels\PusherPushNotifications\Channel;
+use NotificationChannels\PusherPushNotifications\Message;
+use Illuminate\Notifications\Notification;
+
+class AccountApproved extends Notification
+{
+    public function via($notifiable)
+    {
+        return [Channel::class];
+    }
+
+    public function toPushNotification($notifiable)
+    {
+        return Message::create()
+            -&gt;iOS()
+            -&gt;badge(1)
+            -&gt;sound('success')
+            -&gt;body("Your {$notifiable-&gt;service} account was approved!");
+    }
+}</code></pre>
+<h3>Setting up your Pusher account</h3>
+<ul>
+<li>Login to <a href="https://dashboard.pusher.com/">https://dashboard.pusher.com/</a></li>
+<li>Select your app from the sidebar or create a new app.</li>
+<li>Click on the &quot;Push Notifications&quot; tab.</li>
+<li>Upload your APNS Certificate or add your GCM API key.</li>
+<li>Now select the &quot;App Keys&quot; tab.</li>
+<li>Copy your <code>app_id</code>, <code>key</code>, and <code>secret</code>.</li>
+<li>Update the values in your <code>config/broadcasting.php</code> file under the pusher connection.</li>
+<li>You're now good to go.</li>
+</ul>
+<h3>Available Message methods</h3>
+<ul>
+<li><code>platform('')</code>: Accepts a string value of <code>iOS</code> or <code>Android</code>.</li>
+<li><code>iOS()</code>: Sets the platform value to iOS.</li>
+<li><code>android()</code>: Sets the platform value to Android.</li>
+<li><code>title('')</code>: Accepts a string value for the title.</li>
+<li><code>body('')</code>: Accepts a string value for the body.</li>
+<li><code>sound('')</code>: Accepts a string value for the notification sound file. Notice that if you leave blank the default sound value will be <code>default</code>.</li>
+<li><code>icon('')</code>: Accepts a string value for the icon file. (Android Only)</li>
+<li><code>badge(1)</code>: Accepts an integer value for the badge. (iOS Only)</li>
+<li><code>setOption($key, $value)</code>: Allows you to set any value in the message payload. For more information <a href="https://pusher.com/docs/push_notifications/ios/server">check here for iOS</a>, <a href="https://pusher.com/docs/push_notifications/android/server">or here for Android</a>.</li>
+</ul>
+                    </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="content">
+            &copy; Copyright 2016 Laravel Notification Channels
+        </div>
+    </div>
+</footer>
+
+<script src="/assets/prism.js"></script>
+</body>
+</html>
