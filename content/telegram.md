@@ -3,6 +3,8 @@ view::extends: _includes.base
 view::yields: body
 ---
 
+# Telegram
+
 This package makes it easy to send Telegram notification using [Telegram Bot API](https://core.telegram.org/bots) with Laravel 5.3.
 
 ## Installation

@@ -3,6 +3,8 @@ view::extends: _includes.base
 view::yields: body
 ---
 
+# Pusher Push Notifications
+
 This package makes it easy to send [Pusher push notifications](https://pusher.com/docs/push_notifications) with Laravel 5.3.
 
 ## Installation
