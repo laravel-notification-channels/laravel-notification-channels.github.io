@@ -55,7 +55,11 @@
     <li><a href="https:/laravel-notification-channels.github.io/pusher-push-notifications/">Pusher Push Notifications</a></li>
 </ul>
 
-                    </div>
+<p class="menu-label">Messenger / Chat</p>
+<ul class="menu-list">
+    <li><a href="https:/laravel-notification-channels.github.io/telegram/">Telegram</a></li>
+</ul>
+        </div>
         <div class="col-md-10 realContent">
                         <p>This package makes it easy to send <a href="https://pusher.com/docs/push_notifications">Pusher push notifications</a> with Laravel 5.3.</p>
 <h2>Installation</h2>
@@ -114,7 +118,7 @@ class AccountApproved extends Notification
 <li><code>setOption($key, $value)</code>: Allows you to set any value in the message payload. For more information <a href="https://pusher.com/docs/push_notifications/ios/server">check here for iOS</a>, <a href="https://pusher.com/docs/push_notifications/android/server">or here for Android</a>.</li>
 </ul>
 <h3>Routing a message</h3>
-<p>By default the pusher &quot;interest&quot; messages will be sent to will be defined using the {notifiable}.{id} convention, for example <code>App.User.1</code>, however you can change this behaviour by including a <code>routeNotificationForPusherPushNotifications()</code> in the notifiable class method that returns the interest name.</p>
+<p>By default the pusher &quot;interest&quot; messages will be sent to will be defined using the <code>{notifiable}.{id}</code> convention, for example <code>App.User.1</code>, however you can change this behaviour by including a <code>routeNotificationForPusherPushNotifications()</code> in the notifiable class method that returns the interest name.</p>
                     </div>
     </div>
 </div>

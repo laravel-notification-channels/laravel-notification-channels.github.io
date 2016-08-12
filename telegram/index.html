@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <title>Laravel Notification Channels </title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/prism.css">
+    <link rel="stylesheet" href="/assets/css/all.css">
+</head>
+
+<body>
+
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://avatars1.githubusercontent.com/u/20937037?v=3&s=200"
+                         alt="Laravel Notification Channels">
+
+                    <h3>Laravel Notification Channels</h3>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a class="btn btn-default" href="https://github.com/laravel-notification-channels">
+                        <span class="icon"><i class="fa fa-fw fa-github"></i></span>
+                        <span>GitHub</span>
+                    </a>
+
+                    <a class="btn btn-default" href="https://packagist.org/packages/laravel-notification-channels/">
+                        <span class="icon"><i class="fa fa-fw fa-archive"></i></span>
+                        <span>Packagist</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-2">
+            <p class="menu-label">General</p>
+<ul class="menu-list">
+    <li><a href="https:/laravel-notification-channels.github.io/">About</a></li>
+</ul>
+
+            
+<p class="menu-label">Push / Webpush</p>
+<ul class="menu-list">
+    <li><a href="https:/laravel-notification-channels.github.io/pusher-push-notifications/">Pusher Push Notifications</a></li>
+</ul>
+
+<p class="menu-label">Messenger / Chat</p>
+<ul class="menu-list">
+    <li><a href="https:/laravel-notification-channels.github.io/telegram/">Telegram</a></li>
+</ul>
+        </div>
+        <div class="col-md-10 realContent">
+                        <p>This package makes it easy to send Telegram notification using <a href="https://core.telegram.org/bots">Telegram Bot API</a> with Laravel 5.3.</p>
+<h2>Installation</h2>
+<p>Before you can send notifications via Telegram, you must install the Guzzle HTTP library via Composer:</p>
+<pre><code class="language-bash">composer require guzzlehttp/guzzle</code></pre>
+<p>Then, You can install the package via composer:</p>
+<pre><code class="language-bash">composer require laravel-notification-channels/telegram</code></pre>
+<p>You must now install the service provider:</p>
+<pre><code class="language-php">// config/app.php
+'providers' =&gt; [
+    NotificationChannels\Telegram\Provider::class,
+];</code></pre>
+<h2>Setting up your Telegram Bot</h2>
+<p>Talk to <a href="https://core.telegram.org/bots#6-botfather">@BotFather</a> and generate a Bot API Token.</p>
+<p>Then, configure your Telegram Bot API Token:</p>
+<pre><code class="language-php">// config/services.php
+'telegram-bot-api' =&gt; [
+    'token' =&gt; env('TELEGRAM_BOT_TOKEN', 'YOUR BOT TOKEN HERE')
+]</code></pre>
+<h2>Usage</h2>
+<p>You can now use the channel in your <code>via()</code> method inside the Notification class.</p>
+<pre><code class="language-php">use NotificationChannels\Telegram\Channel as TelegramChannel;
+use NotificationChannels\Telegram\Message;
+use Illuminate\Notifications\Notification;
+
+class InvoicePaid extends Notification
+{
+    public function via($notifiable)
+    {
+        return [TelegramChannel::class];
+    }
+
+    public function toTelegram($notifiable)
+    {
+        $url = url('/invoice/' . $this-&gt;invoice-&gt;id);
+
+        return Message::create()
+            -&gt;to($this-&gt;user-&gt;telegram_user_id) // Optional.
+            -&gt;content("*HELLO!* \n One of your invoices has been paid!") // Markdown supported.
+            -&gt;action('View Invoice', $url); // Inline Button
+    }
+}</code></pre>
+<p>Here's a screenshot preview of the above notification on Telegram Messenger:</p>
+<p><img src="https://cloud.githubusercontent.com/assets/1915268/17590374/2e05e872-5ff7-11e6-992f-63d5f3df2db3.png" alt="Laravel Telegram Notification Example" /></p>
+<p>You can either send the notification by providing with the chat id of the recipient to the <code>to($chatId)</code> method like shown in the above example or add a <code>routeNotificationForTelegram</code> method in your notifiable model:</p>
+<pre><code class="language-php">...
+/**
+ * Route notifications for the Telegram channel.
+ *
+ * @return  int
+ */
+public function routeNotificationForTelegram()
+{
+    return $this-&gt;telegram_user_id;
+}
+...</code></pre>
+<h3>Available Message methods</h3>
+<ul>
+<li><code>to($chatId)</code>: (integer) Recipient's chat id.</li>
+<li><code>content('')</code>: (string) Notification message, supports markdown. For more information on supported markdown styles, check out these <a href="https://telegram-bot-sdk.readme.io/docs/sendmessage#section-markdown-style">docs</a>.</li>
+<li><code>action($text, $url)</code>: (string) Adds an inline &quot;Call to Action&quot; button.</li>
+<li><code>options([])</code>: (array) Allows you to add additional or override <code>sendMessage</code> payload (A Telegram Bot API method used to send message internally). For more information on supported parameters, check out these <a href="https://telegram-bot-sdk.readme.io/docs/sendmessage">docs</a>.</li>
+</ul>
+<h2>Alternatives</h2>
+<p>For advance usage, please consider using <a href="https://github.com/irazasyed/telegram-bot-sdk">telegram-bot-sdk</a> instead.</p>
+                    </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="content">
+            &copy; Copyright 2016 Laravel Notification Channels
+        </div>
+    </div>
+</footer>
+
+<script src="/assets/prism.js"></script>
+</body>
+</html>
