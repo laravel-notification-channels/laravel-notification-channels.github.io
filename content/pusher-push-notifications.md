@@ -5,6 +5,20 @@ view::yields: body
 
 This package makes it easy to send [Pusher push notifications](https://pusher.com/docs/push_notifications) with Laravel 5.3.
 
+## Contents
+
+- [Installation](#installation)
+	- [Setting up your Pusher account](#setting-up-your-pusher-account)
+- [Usage](#usage)
+	- [Available Message methods](#available-message-methods)
+- [Changelog](#changelog)
+- [Testing](#testing)
+- [Security](#security)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [License](#license)
+
+
 ## Installation
 
 You can install the package via composer:
@@ -22,6 +36,19 @@ You must install the service provider:
     NotificationChannels\PusherPushNotifications\Provider::class,
 ];
 ```
+
+### Setting up your Pusher account
+
+Before using this package you should set up a Pusher account. Here are the steps required.
+
+- Login to https://dashboard.pusher.com/
+- Select your app from the sidebar or create a new app.
+- Click on the "Push Notifications" tab.
+- Upload your APNS Certificate or add your GCM API key.
+- Now select the "App Keys" tab.
+- Copy your `app_id`, `key`, and `secret`.
+- Update the values in your `config/broadcasting.php` file under the pusher connection.
+- You're now good to go.
 
 ## Usage
 
@@ -50,17 +77,6 @@ class AccountApproved extends Notification
 }
 ```
 
-### Setting up your Pusher account
-
-- Login to https://dashboard.pusher.com/
-- Select your app from the sidebar or create a new app.
-- Click on the "Push Notifications" tab.
-- Upload your APNS Certificate or add your GCM API key.
-- Now select the "App Keys" tab.
-- Copy your `app_id`, `key`, and `secret`.
-- Update the values in your `config/broadcasting.php` file under the pusher connection.
-- You're now good to go.
-
 ### Available Message methods
 
 - `platform('')`: Accepts a string value of `iOS` or `Android`.
@@ -73,3 +89,6 @@ class AccountApproved extends Notification
 - `badge(1)`: Accepts an integer value for the badge. (iOS Only)
 - `setOption($key, $value)`: Allows you to set any value in the message payload. For more information [check here for iOS](https://pusher.com/docs/push_notifications/ios/server), [or here for Android](https://pusher.com/docs/push_notifications/android/server).
 
+### Routing a message
+
+By default the pusher "interest" messages will be sent to will be defined using the {notifiable}.{id} convention, for example `App.User.1`, however you can change this behaviour by including a `routeNotificationForPusherPushNotifications()` in the notifiable class method that returns the interest name.
