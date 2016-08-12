@@ -88,71 +88,81 @@
 </ul>
         </div>
         <div class="col-md-10 realContent">
-                        <h1>Telegram</h1>
-<p>This package makes it easy to send Telegram notification using <a href="https://core.telegram.org/bots">Telegram Bot API</a> with Laravel 5.3.</p>
+                        <h1>OneSignal</h1>
+<p>This package makes it easy to send <a href="https://documentation.onesignal.com/docs">OneSignal notifications</a> with Laravel 5.3.</p>
 <h2>Installation</h2>
-<p>Before you can send notifications via Telegram, you must install the Guzzle HTTP library via Composer:</p>
-<pre><code class="language-bash">composer require guzzlehttp/guzzle</code></pre>
-<p>Then, You can install the package via composer:</p>
-<pre><code class="language-bash">composer require laravel-notification-channels/telegram</code></pre>
-<p>You must now install the service provider:</p>
+<p>You can install the package via composer:</p>
+<pre><code class="language-bash">composer require laravel-notification-channels/onesignal</code></pre>
+<p>You must install the service provider:</p>
 <pre><code class="language-php">// config/app.php
 'providers' =&gt; [
-    NotificationChannels\Telegram\Provider::class,
+    ...
+    NotificationChannels\OneSignal\OneSignalProvider::class,
 ];</code></pre>
-<h2>Setting up your Telegram Bot</h2>
-<p>Talk to <a href="https://core.telegram.org/bots#6-botfather">@BotFather</a> and generate a Bot API Token.</p>
-<p>Then, configure your Telegram Bot API Token:</p>
+<h3>Setting up your OneSignal account</h3>
+<p>Add your OneSignal App ID and REST API Key to your <code>config/services.php</code>:</p>
 <pre><code class="language-php">// config/services.php
-'telegram-bot-api' =&gt; [
-    'token' =&gt; env('TELEGRAM_BOT_TOKEN', 'YOUR BOT TOKEN HERE')
-]</code></pre>
+
+    'onesignal' =&gt; [
+        'app_id' =&gt; env('ONESIGNAL_APP_ID'),
+        'rest_api_key' =&gt; env('ONESIGNAL_REST_API_KEY')
+    ]</code></pre>
 <h2>Usage</h2>
-<p>You can now use the channel in your <code>via()</code> method inside the Notification class.</p>
-<pre><code class="language-php">use NotificationChannels\Telegram\Channel as TelegramChannel;
-use NotificationChannels\Telegram\Message;
+<p>Now you can use the channel in your <code>via()</code> method inside the notification:</p>
+<pre><code class="language-php">use NotificationChannels\OneSignal\OneSignalChannel;
+use NotificationChannels\OneSignal\OneSignalMessage;
+use NotificationChannels\OneSignal\OneSignalWebButton;
 use Illuminate\Notifications\Notification;
 
-class InvoicePaid extends Notification
+class AccountApproved extends Notification
 {
     public function via($notifiable)
     {
-        return [TelegramChannel::class];
+        return [OneSignalChannel::class];
     }
 
-    public function toTelegram($notifiable)
+    public function toOneSignal($notifiable)
     {
-        $url = url('/invoice/' . $this-&gt;invoice-&gt;id);
-
-        return Message::create()
-            -&gt;to($this-&gt;user-&gt;telegram_user_id) // Optional.
-            -&gt;content("*HELLO!* \n One of your invoices has been paid!") // Markdown supported.
-            -&gt;action('View Invoice', $url); // Inline Button
+        return OneSignalMessage::create()
+            -&gt;subject("Your {$notifiable-&gt;service} account was approved!")
+            -&gt;body("Click here to see details.")
+            -&gt;url('http://onesignal.com')
+            -&gt;webButton(OneSignalWebButton::create('link-1')
+                -&gt;text('Click here')
+                -&gt;icon('https://upload.wikimedia.org/wikipedia/commons/4/4f/Laravel_logo.png')
+                -&gt;url('http://laravel.com')
+            );
     }
 }</code></pre>
-<p>Here's a screenshot preview of the above notification on Telegram Messenger:</p>
-<p><img src="https://cloud.githubusercontent.com/assets/1915268/17590374/2e05e872-5ff7-11e6-992f-63d5f3df2db3.png" alt="Laravel Telegram Notification Example" /></p>
-<p>You can either send the notification by providing with the chat id of the recipient to the <code>to($chatId)</code> method like shown in the above example or add a <code>routeNotificationForTelegram</code> method in your notifiable model:</p>
-<pre><code class="language-php">...
-/**
- * Route notifications for the Telegram channel.
- *
- * @return  int
- */
-public function routeNotificationForTelegram()
+<p>In order to let your Notification know which OneSignal user(s) you are targeting, add the <code>routeNotificationForOneSignal</code> method to your Notifiable model.</p>
+<p>You can either return a single player-id, or if you want to notify multiple player IDs just return an array containing all IDs.</p>
+<pre><code class="language-php">public function routeNotificationForOneSignal()
 {
-    return $this-&gt;telegram_user_id;
-}
-...</code></pre>
-<h3>Available Message methods</h3>
+    return 'ONE_SIGNAL_PLAYER_ID';
+}</code></pre>
+<h3>All available methods</h3>
 <ul>
-<li><code>to($chatId)</code>: (integer) Recipient's chat id.</li>
-<li><code>content('')</code>: (string) Notification message, supports markdown. For more information on supported markdown styles, check out these <a href="https://telegram-bot-sdk.readme.io/docs/sendmessage#section-markdown-style">docs</a>.</li>
-<li><code>action($text, $url)</code>: (string) Adds an inline &quot;Call to Action&quot; button.</li>
-<li><code>options([])</code>: (array) Allows you to add additional or override <code>sendMessage</code> payload (A Telegram Bot API method used to send message internally). For more information on supported parameters, check out these <a href="https://telegram-bot-sdk.readme.io/docs/sendmessage">docs</a>.</li>
+<li><code>subject('')</code>: Accepts a string value for the title.</li>
+<li><code>body('')</code>: Accepts a string value for the notification body.</li>
+<li><code>icon('')</code>: Accepts an url for the icon.</li>
+<li><code>url('')</code>: Accepts an url for the notification click event.</li>
+<li><code>webButton(OneSignalWebButton $button)</code>: Allows you to add action buttons to the notification (Chrome 48+ (web push) only).</li>
+<li><code>button(OneSignalButton $button)</code>: Allows you to add buttons to the notification (Supported by iOS 8.0 and Android 4.1+ devices. Icon only works for Android).</li>
+<li><code>setData($key, $value)</code>: Allows you to set additional data for the message payload. For more information check the <a href="https://documentation.onesignal.com/docs/notifications-create-notification">OneSignal documentation</a>.</li>
 </ul>
-<h2>Alternatives</h2>
-<p>For advance usage, please consider using <a href="https://github.com/irazasyed/telegram-bot-sdk">telegram-bot-sdk</a> instead.</p>
+<h3>Button usage</h3>
+<pre><code class="language-php">OneSignalMessage::create()
+    -&gt;button(OneSignalButton::create('id')
+        -&gt;text('button text')
+        -&gt;icon('button icon')
+    );</code></pre>
+<h3>WebButton usage</h3>
+<pre><code class="language-php">OneSignalMessage::create()
+    -&gt;webButton(OneSignalWebButton::create('id')
+        -&gt;text('button text')
+        -&gt;icon('button icon')
+        -&gt;url('button url')
+    );</code></pre>
                     </div>
     </div>
 </div>
