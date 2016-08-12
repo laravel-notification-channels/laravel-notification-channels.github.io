@@ -56,6 +56,7 @@ h2 {
   margin-top: 4px;
 }
 .menu-label {
+  margin-top: 30px;
   border-bottom: dashed 1px #e1e1e1;
 }
 .menu-list {
@@ -112,6 +113,9 @@ footer {
   margin-bottom: 60px;
   color: #16d19c;
   text-align: center;
+}
+.wow img {
+  max-width: 140px;
 }
 .wow h1 {
   font-weight: 200;
