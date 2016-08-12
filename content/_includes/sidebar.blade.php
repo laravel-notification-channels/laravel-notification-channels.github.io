@@ -11,6 +11,7 @@
 
 <p class="menu-label">Push / Webpush</p>
 <ul class="menu-list">
+    <li><a href="@url('/onesignal')">OneSignal</a></li>
     <li><a href="@url('/pusher-push-notifications')">Pusher Push Notifications</a></li>
 </ul>
 
