@@ -11,5 +11,5 @@ return [
      *
      */
 
-    'base_url' => 'http://laravel-notification-channels.com',
+    'base_url' => '/',
 ];
