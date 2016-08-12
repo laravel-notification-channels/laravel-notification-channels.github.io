@@ -77,4 +77,4 @@ class AccountApproved extends Notification
 
 ### Routing a message
 
-By default the pusher "interest" messages will be sent to will be defined using the {notifiable}.{id} convention, for example `App.User.1`, however you can change this behaviour by including a `routeNotificationForPusherPushNotifications()` in the notifiable class method that returns the interest name.
+By default the pusher "interest" messages will be sent to will be defined using the `{notifiable}.{id}` convention, for example `App.User.1`, however you can change this behaviour by including a `routeNotificationForPusherPushNotifications()` in the notifiable class method that returns the interest name.
