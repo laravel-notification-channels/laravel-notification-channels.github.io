@@ -91,14 +91,12 @@
                         <h1>Telegram</h1>
 <p>This package makes it easy to send Telegram notification using <a href="https://core.telegram.org/bots">Telegram Bot API</a> with Laravel 5.3.</p>
 <h2>Installation</h2>
-<p>Before you can send notifications via Telegram, you must install the Guzzle HTTP library via Composer:</p>
-<pre><code class="language-bash">composer require guzzlehttp/guzzle</code></pre>
-<p>Then, You can install the package via composer:</p>
+<p>You can install the package via composer:</p>
 <pre><code class="language-bash">composer require laravel-notification-channels/telegram</code></pre>
-<p>You must now install the service provider:</p>
+<p>You must install the service provider:</p>
 <pre><code class="language-php">// config/app.php
 'providers' =&gt; [
-    NotificationChannels\Telegram\Provider::class,
+    NotificationChannels\Telegram\TelegramServiceProvider::class,
 ];</code></pre>
 <h2>Setting up your Telegram Bot</h2>
 <p>Talk to <a href="https://core.telegram.org/bots#6-botfather">@BotFather</a> and generate a Bot API Token.</p>
@@ -109,8 +107,8 @@
 ]</code></pre>
 <h2>Usage</h2>
 <p>You can now use the channel in your <code>via()</code> method inside the Notification class.</p>
-<pre><code class="language-php">use NotificationChannels\Telegram\Channel as TelegramChannel;
-use NotificationChannels\Telegram\Message;
+<pre><code class="language-php">use NotificationChannels\Telegram\TelegramChannel;
+use NotificationChannels\Telegram\TelegramMessage;
 use Illuminate\Notifications\Notification;
 
 class InvoicePaid extends Notification
@@ -124,15 +122,16 @@ class InvoicePaid extends Notification
     {
         $url = url('/invoice/' . $this-&gt;invoice-&gt;id);
 
-        return Message::create()
+        return TelegramMessage::create()
             -&gt;to($this-&gt;user-&gt;telegram_user_id) // Optional.
             -&gt;content("*HELLO!* \n One of your invoices has been paid!") // Markdown supported.
-            -&gt;action('View Invoice', $url); // Inline Button
+            -&gt;button('View Invoice', $url); // Inline Button
     }
 }</code></pre>
 <p>Here's a screenshot preview of the above notification on Telegram Messenger:</p>
 <p><img src="https://cloud.githubusercontent.com/assets/1915268/17590374/2e05e872-5ff7-11e6-992f-63d5f3df2db3.png" alt="Laravel Telegram Notification Example" /></p>
-<p>You can either send the notification by providing with the chat id of the recipient to the <code>to($chatId)</code> method like shown in the above example or add a <code>routeNotificationForTelegram</code> method in your notifiable model:</p>
+<h3>Routing a message</h3>
+<p>You can either send the notification by providing with the chat id of the recipient to the <code>to($chatId)</code> method like shown in the above example or add a <code>routeNotificationForTelegram()</code> method in your notifiable model:</p>
 <pre><code class="language-php">...
 /**
  * Route notifications for the Telegram channel.
@@ -148,7 +147,7 @@ public function routeNotificationForTelegram()
 <ul>
 <li><code>to($chatId)</code>: (integer) Recipient's chat id.</li>
 <li><code>content('')</code>: (string) Notification message, supports markdown. For more information on supported markdown styles, check out these <a href="https://telegram-bot-sdk.readme.io/docs/sendmessage#section-markdown-style">docs</a>.</li>
-<li><code>action($text, $url)</code>: (string) Adds an inline &quot;Call to Action&quot; button.</li>
+<li><code>button($text, $url)</code>: (string) Adds an inline &quot;Call to Action&quot; button. You can add as many as you want and they'll be placed 2 in a row.</li>
 <li><code>options([])</code>: (array) Allows you to add additional or override <code>sendMessage</code> payload (A Telegram Bot API method used to send message internally). For more information on supported parameters, check out these <a href="https://telegram-bot-sdk.readme.io/docs/sendmessage">docs</a>.</li>
 </ul>
 <h2>Alternatives</h2>
