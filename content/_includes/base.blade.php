@@ -45,7 +45,7 @@
 
 @if($currentUrlPath == '/')
     <div class="wow">
-        <img src="https://avatars1.githubusercontent.com/u/20937037?v=3&s=200"
+        <img src="@url('/assets/logo.png')"
              alt="Laravel Notification Channels">
         <h1>Laravel Notification Channels</h1>
         <h2>A collection of custom drivers for Laravel 5.3</h2>

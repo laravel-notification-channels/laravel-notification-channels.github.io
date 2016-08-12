@@ -1,6 +1,5 @@
-<p class="menu-label">General</p>
 <ul class="menu-list">
-    <li><a href="@url('/')">About</a></li>
+    <li><a href="@url('/')">Contributing</a></li>
 </ul>
 
 {{--<p class="menu-label">SMS</p>--}}
