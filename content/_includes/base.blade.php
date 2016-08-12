@@ -63,20 +63,18 @@
             <div class="row">
                 <div class="col-md-6">
                     <a href="@url('/')">
-                        <img src="https://avatars1.githubusercontent.com/u/20937037?v=3&s=200"
+                        <img src="@url('/assets/logo.png')"
                              alt="Laravel Notification Channels">
                     </a>
 
                     <h1><a href="@url('/')">Laravel Notification Channels</a></h1>
                 </div>
-                <div class="col-md-6 text-right">
-                    <a class="btn btn-default" href="https://github.com/laravel-notification-channels">
-                        <span class="icon"><i class="fa fa-fw fa-github"></i></span>
+                <div class="col-md-6 text-right buttons">
+                    <a href="https://github.com/laravel-notification-channels">
                         <span>GitHub</span>
                     </a>
 
-                    <a class="btn btn-default" href="https://packagist.org/packages/laravel-notification-channels/">
-                        <span class="icon"><i class="fa fa-fw fa-archive"></i></span>
+                    <a href="https://packagist.org/packages/laravel-notification-channels/">
                         <span>Packagist</span>
                     </a>
                 </div>
