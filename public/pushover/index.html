@@ -108,17 +108,35 @@
     <li><a href="/smsc-ru/">Smsc.ru</a></li>
 </ul>        </div>
         <div class="col-md-10 realContent">
-                <script>
+                <style>
+    .realContent p:first-of-type{
+        display: none;
+    }
+
+    .realContent h2:first-of-type{
+        display: none;
+    }
+
+    .realContent ul:first-of-type{
+        display: none;
+    }
+</style>
+
+<script>
     var file = 'pushover',
             baseURL = 'https://raw.githubusercontent.com/laravel-notification-channels/' + file + '/master/README.md';
 
-    $.get(baseURL, function (data, status) {
+    $.get(baseURL, function (data) {
         var md = window.markdownit();
         var result = md.render(data);
 
         $('.realContent').prepend(result);
     });
-</script>        </div>
+</script>
+
+<hr>
+
+<a class="btn btn-default" href="https://github.com/laravel-notification-channels/pushover/edit/master/README.md">Edit on GitHub</a>        </div>
     </div>
 </div>
 
