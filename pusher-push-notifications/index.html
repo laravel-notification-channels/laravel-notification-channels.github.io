@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
@@ -24,6 +24,9 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/7.0.0/markdown-it.min.js" ></script>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
@@ -34,13 +37,22 @@
 
 <body>
 <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P62952"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-P62952');</script>
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P62952"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+                '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P62952');</script>
 <!-- End Google Tag Manager -->
 
     <div id="header">
@@ -75,78 +87,38 @@
     <li><a href="/">Contributing</a></li>
 </ul>
 
-            
 <p class="menu-label">Push / Webpush</p>
 <ul class="menu-list">
     <li><a href="/pusher-push-notifications/">Pusher Push Notifications</a></li>
+    <li><a href="/onesignal/">OneSignal</a></li>
+    <li><a href="/webpush/">WebPush</a></li>
+    <li><a href="/pushbullet/">PushBullet</a></li>
+    <li><a href="/pushover/">PushOver</a></li>
 </ul>
 
 <p class="menu-label">Messenger / Chat</p>
 <ul class="menu-list">
     <li><a href="/telegram/">Telegram</a></li>
 </ul>
-        </div>
+
+<p class="menu-label">SMS</p>
+<ul class="menu-list">
+    <li><a href="/twilio/">Twilio</a></li>
+    <li><a href="/smsc-ru/">Smsc.ru</a></li>
+</ul>        </div>
         <div class="col-md-10 realContent">
-                        <h1>Pusher Push Notifications</h1>
-<p>This package makes it easy to send <a href="https://pusher.com/docs/push_notifications">Pusher push notifications</a> with Laravel 5.3.</p>
-<h2>Installation</h2>
-<p>You can install the package via composer:</p>
-<pre><code class="language-bash">composer require laravel-notification-channels/pusher-push-notifications</code></pre>
-<p>You must install the service provider:</p>
-<pre><code class="language-php">// config/app.php
-'providers' =&gt; [
-    ...
-    NotificationChannels\PusherPushNotifications\Provider::class,
-];</code></pre>
-<h3>Setting up your Pusher account</h3>
-<p>Before using this package you should set up a Pusher account. Here are the steps required.</p>
-<ul>
-<li>Login to <a href="https://dashboard.pusher.com/">https://dashboard.pusher.com/</a></li>
-<li>Select your app from the sidebar or create a new app.</li>
-<li>Click on the &quot;Push Notifications&quot; tab.</li>
-<li>Upload your APNS Certificate or add your GCM API key.</li>
-<li>Now select the &quot;App Keys&quot; tab.</li>
-<li>Copy your <code>app_id</code>, <code>key</code>, and <code>secret</code>.</li>
-<li>Update the values in your <code>config/broadcasting.php</code> file under the pusher connection.</li>
-<li>You're now good to go.</li>
-</ul>
-<h2>Usage</h2>
-<p>Now you can use the channel in your <code>via()</code> method inside the Notification class.</p>
-<pre><code class="language-php">use NotificationChannels\PusherPushNotifications\Channel;
-use NotificationChannels\PusherPushNotifications\Message;
-use Illuminate\Notifications\Notification;
+                <script>
+        var file = 'pusher-push-notifications',
+                baseURL = 'https://raw.githubusercontent.com/laravel-notification-channels/' + file + '/master/README.md';
 
-class AccountApproved extends Notification
-{
-    public function via($notifiable)
-    {
-        return [Channel::class];
-    }
+        $.get(baseURL, function (data, status) {
+            var md = window.markdownit();
+            var result = md.render(data);
 
-    public function toPushNotification($notifiable)
-    {
-        return Message::create()
-            -&gt;iOS()
-            -&gt;badge(1)
-            -&gt;sound('success')
-            -&gt;body("Your {$notifiable-&gt;service} account was approved!");
-    }
-}</code></pre>
-<h3>Available Message methods</h3>
-<ul>
-<li><code>platform('')</code>: Accepts a string value of <code>iOS</code> or <code>Android</code>.</li>
-<li><code>iOS()</code>: Sets the platform value to iOS.</li>
-<li><code>android()</code>: Sets the platform value to Android.</li>
-<li><code>title('')</code>: Accepts a string value for the title.</li>
-<li><code>body('')</code>: Accepts a string value for the body.</li>
-<li><code>sound('')</code>: Accepts a string value for the notification sound file. Notice that if you leave blank the default sound value will be <code>default</code>.</li>
-<li><code>icon('')</code>: Accepts a string value for the icon file. (Android Only)</li>
-<li><code>badge(1)</code>: Accepts an integer value for the badge. (iOS Only)</li>
-<li><code>setOption($key, $value)</code>: Allows you to set any value in the message payload. For more information <a href="https://pusher.com/docs/push_notifications/ios/server">check here for iOS</a>, <a href="https://pusher.com/docs/push_notifications/android/server">or here for Android</a>.</li>
-</ul>
-<h3>Routing a message</h3>
-<p>By default the pusher &quot;interest&quot; messages will be sent to will be defined using the <code>{notifiable}.{id}</code> convention, for example <code>App.User.1</code>, however you can change this behaviour by including a <code>routeNotificationForPusherPushNotifications()</code> in the notifiable class method that returns the interest name.</p>
-                    </div>
+            $('.realContent').prepend(result);
+        });
+    </script>
+        </div>
     </div>
 </div>
 
