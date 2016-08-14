@@ -21,6 +21,8 @@
         var result = md.render(data);
 
         $('.realContent').prepend(result);
+
+        Prism.highlightAll();
     });
 </script>
 
