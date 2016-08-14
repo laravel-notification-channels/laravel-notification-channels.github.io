@@ -19,12 +19,13 @@
 
 <p class="menu-label">SMS</p>
 <ul class="menu-list">
-    <li><a href="@url('/twilio')">Twilio</a></li>
-    <li><a href="@url('/smsc-ru')">Smsc.ru</a></li>
     <li><a href="@url('/jusibe')">Jusibe</a></li>
+    <li><a href="@url('/smsc-ru')">Smsc.ru</a></li>
+    <li><a href="@url('/twilio')">Twilio</a></li>
 </ul>
 
 <p class="menu-label">Misc.</p>
 <ul class="menu-list">
     <li><a href="@url('/lob')">Lob Physical Mail</a></li>
+    <li><a href="@url('/trello')">Trello</a></li>
 </ul>
