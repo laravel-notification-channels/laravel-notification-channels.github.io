@@ -114,15 +114,7 @@
 </ul>        </div>
         <div class="col-md-10 realContent">
                 <style>
-    .realContent p:first-of-type{
-        display: none;
-    }
-
-    .realContent h2:first-of-type{
-        display: none;
-    }
-
-    .realContent ul:first-of-type{
+    .realContent p:first-of-type {
         display: none;
     }
 </style>
@@ -136,6 +128,15 @@
         var result = md.render(data);
 
         $('.realContent').prepend(result);
+
+        ['Contents', 'Changelog', 'Testing', 'Security', 'Contributing'].forEach(function (title) {
+            $('.realContent').find("h2:contains(" + title + ")").next('ul').remove();
+            $('.realContent').find("h2:contains(" + title + ")").remove();
+        });
+
+        $('.realContent').find("a:contains(All Contributors)").closest('li').remove();
+
+        $('.realContent').find("h2:contains(Credits)").next('ul').append('<li>All Contributors</li>');
 
         Prism.highlightAll();
     });
