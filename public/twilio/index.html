@@ -100,6 +100,7 @@
 <p class="menu-label">Messenger / Chat</p>
 <ul class="menu-list">
     <li><a href="/telegram/">Telegram</a></li>
+    <li><a href="/hipchat/">HipChat</a></li>
 </ul>
 
 <p class="menu-label">SMS</p>
@@ -107,6 +108,8 @@
     <li><a href="/jusibe/">Jusibe</a></li>
     <li><a href="/smsc-ru/">Smsc.ru</a></li>
     <li><a href="/twilio/">Twilio</a></li>
+    <li><a href="/plivo/">Plivo</a></li>
+    <li><a href="/clickatell/">Clickatell</a></li>
 </ul>
 
 <p class="menu-label">Misc.</p>
@@ -132,7 +135,7 @@
         var md = window.markdownit();
         var result = md.render(data);
 
-        $('.realContent').prepend(result);
+        $('.realContent').append(result);
 
         ['Contents', 'Changelog', 'Testing', 'Security', 'Contributing'].forEach(function (title) {
             $('.realContent').find("h2:contains(" + title + ")").next('ul').remove();
@@ -147,9 +150,17 @@
     });
 </script>
 
-<hr>
 
-<a class="btn btn-default" href="https://github.com/laravel-notification-channels/twilio/edit/master/README.md">Edit on GitHub</a>        </div>
+<div class="row">
+    <div class="col-md-6">
+        <a class="btn btn-default" href="https://github.com/laravel-notification-channels/twilio">
+            <i class="fa fa-github"></i> GitHub
+        </a>
+        &nbsp&nbsp | &nbsp&nbsp
+        <a href="https://github.com/laravel-notification-channels/twilio/edit/master/README.md" style="opacity: 0.4;">Edit</a>
+    </div>
+</div>
+        </div>
     </div>
 </div>
 

@@ -15,6 +15,7 @@
 <p class="menu-label">Messenger / Chat</p>
 <ul class="menu-list">
     <li><a href="@url('/telegram')">Telegram</a></li>
+    <li><a href="@url('/hipchat')">HipChat</a></li>
 </ul>
 
 <p class="menu-label">SMS</p>
@@ -22,6 +23,8 @@
     <li><a href="@url('/jusibe')">Jusibe</a></li>
     <li><a href="@url('/smsc-ru')">Smsc.ru</a></li>
     <li><a href="@url('/twilio')">Twilio</a></li>
+    <li><a href="@url('/plivo')">Plivo</a></li>
+    <li><a href="@url('/clickatell')">Clickatell</a></li>
 </ul>
 
 <p class="menu-label">Misc.</p>

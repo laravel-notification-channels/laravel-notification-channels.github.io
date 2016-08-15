@@ -73,7 +73,7 @@ h2 {
     padding: 0 130px;
   }
 }
-.realContent h1:first-child {
+.realContent h1:first-of-type {
   margin-top: 0;
   margin-bottom: 50px;
   font-size: 50px;
