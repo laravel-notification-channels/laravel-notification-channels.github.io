@@ -29,4 +29,5 @@
     <li><a href="@url('/lob')">Lob Physical Mail</a></li>
     <li><a href="@url('/trello')">Trello</a></li>
     <li><a href="@url('/webhook')">Webhook</a></li>
+    <li><a href="@url('/wunderlist')">Wunderlist</a></li>
 </ul>
