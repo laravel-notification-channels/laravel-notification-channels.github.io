@@ -12,7 +12,7 @@
         var md = window.markdownit();
         var result = md.render(data);
 
-        $('.realContent').prepend(result);
+        $('.realContent').append(result);
 
         ['Contents', 'Changelog', 'Testing', 'Security', 'Contributing'].forEach(function (title) {
             $('.realContent').find("h2:contains(" + title + ")").next('ul').remove();
@@ -27,6 +27,13 @@
     });
 </script>
 
-<hr>
 
-<a class="btn btn-default" href="https://github.com/laravel-notification-channels/{{$repoName}}/edit/master/README.md">Edit on GitHub</a>
+<div class="row">
+    <div class="col-md-6">
+        <a class="btn btn-default" href="https://github.com/laravel-notification-channels/{{$repoName}}">
+            <i class="fa fa-github"></i> GitHub
+        </a>
+        &nbsp&nbsp | &nbsp&nbsp
+        <a href="https://github.com/laravel-notification-channels/{{$repoName}}/edit/master/README.md" style="opacity: 0.4;">Edit</a>
+    </div>
+</div>
