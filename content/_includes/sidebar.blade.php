@@ -20,11 +20,17 @@
 
 <p class="menu-label">SMS</p>
 <ul class="menu-list">
+    <li><a href="@url('/clickatell')">Clickatell</a></li>
     <li><a href="@url('/jusibe')">Jusibe</a></li>
+    <li><a href="@url('/plivo')">Plivo</a></li>
     <li><a href="@url('/smsc-ru')">Smsc.ru</a></li>
     <li><a href="@url('/twilio')">Twilio</a></li>
-    <li><a href="@url('/plivo')">Plivo</a></li>
-    <li><a href="@url('/clickatell')">Clickatell</a></li>
+</ul>
+
+<p class="menu-label">To-do Lists</p>
+<ul class="menu-list">
+  <li><a href="@url('/todoist')">Todoist</a></li>
+  <li><a href="@url('/wunderlist')">Wunderlist</a></li>
 </ul>
 
 <p class="menu-label">Misc.</p>
@@ -32,5 +38,4 @@
     <li><a href="@url('/lob')">Lob Physical Mail</a></li>
     <li><a href="@url('/trello')">Trello</a></li>
     <li><a href="@url('/webhook')">Webhook</a></li>
-    <li><a href="@url('/wunderlist')">Wunderlist</a></li>
 </ul>
