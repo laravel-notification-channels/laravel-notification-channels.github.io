@@ -29,6 +29,7 @@
 
 <p class="menu-label">To-do Lists</p>
 <ul class="menu-list">
+  <li><a href="@url('/evernote')">Evernote</a></li>
   <li><a href="@url('/todoist')">Todoist</a></li>
   <li><a href="@url('/wunderlist')">Wunderlist</a></li>
 </ul>
