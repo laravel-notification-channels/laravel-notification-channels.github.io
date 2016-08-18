@@ -11,6 +11,58 @@ Contributions are **welcome** and will be fully **credited**.
 
 Please read and understand the contribution guide before creating an issue or pull request.
 
+## FAQ
+
+* Who owns the work?
+
+> It is up to the package author to maintain the repository after it has been released.
+>
+> You'll be given **admin rights** to your repo. So you are in total control. Only if you ever do something like breaking semver we'll step in.
+>
+> If some problems should arise you're always free to copy over the code to your own repo and abandon the one in our organization.
+
+* What level of access is given?
+
+> Admin Rights
+
+* What happens to the package, if the author decides to abandon or quit?
+
+> Probably we, as a community, will step in until we find a replacement.
+
+* What rights are being taken away from the author automatically?
+
+> None
+
+* What are their rights as an author?
+
+> Technically: Admin rights, and you may do with the code whatever your want.
+
+* Who decides who can be part of the package as a collaborator?
+
+> As an admin, package maintainers can choose their own collaborators.
+
+* Things you should be knowing:
+
+> If you need help with anything just ask us. We're nice guys.
+>
+> [Freek Van der Herten](https://twitter.com/freekmurze)
+>
+> [Mohamed Said](https://twitter.com/themsaid)
+>
+> [Marcel Pociot](https://twitter.com/marcelpociot)
+
+ * What are the rules?
+
+> You're reading them. If we have the same values (creating a good experience for the users) we don't need too many rules.
+
+* What are the benefits?
+
+> For package users: an excellent experience
+>
+> For package creators: a small ecosystem of package creators that can help each other
+
+
+
 ## Etiquette
 
 These projects are open source, and as such, the maintainers give their free time to build and maintain the source code
