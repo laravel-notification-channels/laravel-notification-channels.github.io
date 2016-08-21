@@ -13,53 +13,54 @@ Please read and understand the contribution guide before creating an issue or pu
 
 ## FAQ
 
-* Who owns the work?
+### Who owns the work?
 
-> It is up to the package author to maintain the repository after it has been released.
->
-> You'll be given **admin rights** to your repo. So you are in total control. Only if you ever do something like breaking semver we'll step in.
->
-> If some problems should arise you're always free to copy over the code to your own repo and abandon the one in our organization.
+ It is up to the package author to maintain the repository after it has been released.
 
-* What level of access is given?
+ You'll be given **admin rights** to your repo. So you are in total control. Only if you ever do something like breaking semver we'll step in.
 
-> Admin Rights
+ If some problems should arise you're always free to copy over the code to your own repo and abandon the one in our organization.
 
-* What happens to the package, if the author decides to abandon or quit?
+### What level of access is given?
 
-> Probably we, as a community, will step in until we find a replacement.
+ Admin Rights
 
-* What rights are being taken away from the author automatically?
+### What happens to the package, if the author decides to abandon or quit?
 
-> None
+ Probably we, as a community, will step in until we find a replacement.
 
-* What are their rights as an author?
+### What rights are being taken away from the author automatically?
 
-> Technically: Admin rights, and you may do with the code whatever your want.
+ None
 
-* Who decides who can be part of the package as a collaborator?
+### What are their rights as an author?
 
-> As an admin, package maintainers can choose their own collaborators.
+ Technically: Admin rights, and you may do with the code whatever your want.
 
-* Things you should be knowing:
+### Who decides who can be part of the package as a collaborator?
 
-> If you need help with anything just ask us. We're nice guys.
->
-> [Freek Van der Herten](https://twitter.com/freekmurze)
->
-> [Mohamed Said](https://twitter.com/themsaid)
->
-> [Marcel Pociot](https://twitter.com/marcelpociot)
+ As an admin, package maintainers can choose their own collaborators.
 
- * What are the rules?
+### Things you should be knowing:
 
-> You're reading them. If we have the same values (creating a good experience for the users) we don't need too many rules.
+ If you need help with anything just ask us. We're nice guys.
 
-* What are the benefits?
+ [Freek Van der Herten](https://twitter.com/freekmurze)
 
-> For package users: an excellent experience
->
-> For package creators: a small ecosystem of package creators that can help each other
+ [Mohamed Said](https://twitter.com/themsaid)
+
+ [Marcel Pociot](https://twitter.com/marcelpociot)
+
+
+### What are the rules?
+
+ You're reading them. If we have the same values (creating a good experience for the users) we don't need too many rules.
+
+### What are the benefits?
+
+ For package users: an excellent experience
+
+ For package creators: a small ecosystem of package creators that can help each other
 
 
 

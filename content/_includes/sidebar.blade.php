@@ -1,6 +1,6 @@
 <ul class="menu-list">
     <li><a href="@url('/')">Contributing</a></li>
-    <li><a href="@url('/backport')">Notifications for Laravel 5.1 / 5.2</a></li>
+    <li><a href="@url('/backport')">Laravel 5.1 / 5.2</a></li>
 </ul>
 
 <p class="menu-label">Push / Webpush</p>
@@ -14,7 +14,7 @@
 
 </ul>
 
-<p class="menu-label">Messenger / Chat / Social Media</p>
+<p class="menu-label">Messenger / Chat / Social</p>
 <ul class="menu-list">
     <li><a href="@url('/discord')">Discord</a></li>
     <li><a href="@url('/facebook')">Facebook</a></li>
