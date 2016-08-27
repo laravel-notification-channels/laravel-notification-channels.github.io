@@ -5,6 +5,7 @@
 
 <p class="menu-label">Push / Webpush</p>
 <ul class="menu-list">
+    <li><a href="@url('/gcm')">GCM Notifications</a></li>
     <li><a href="@url('/ionic-push-notifications')">Ionic Push Notifications</a></li>
     <li><a href="@url('/onesignal')">OneSignal</a></li>
     <li><a href="@url('/pushover')">Pushover</a></li>
