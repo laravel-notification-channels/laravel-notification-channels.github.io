@@ -17,6 +17,7 @@
 
 <p class="menu-label">Messenger / Chat / Social</p>
 <ul class="menu-list">
+    <li><a href="@url('/bearychat')">BearyChat</a></li>
     <li><a href="@url('/discord')">Discord</a></li>
     <li><a href="@url('/facebook')">Facebook</a></li>
     <li><a href="@url('/gitter')">Gitter</a></li>
@@ -46,7 +47,7 @@
 <p class="menu-label">Misc.</p>
 <ul class="menu-list">
     <li><a href="@url('/lob')">Lob Physical Mail</a></li>
-    <li><a href="@url('/maillift')">MailLift Handwritten Letters</a></li>    
+    <li><a href="@url('/maillift')">MailLift Handwritten Letters</a></li>
     <li><a href="@url('/trello')">Trello</a></li>
     <li><a href="@url('/webhook')">Webhook</a></li>
 </ul>
