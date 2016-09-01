@@ -28,7 +28,7 @@
 </script>
 
 
-<div class="row">
+<div class="row options">
     <div class="col-md-6">
         <a class="btn btn-default" href="https://github.com/laravel-notification-channels/{{$repoName}}">
             <i class="fa fa-github"></i> GitHub
