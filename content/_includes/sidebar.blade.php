@@ -29,6 +29,7 @@
 <p class="menu-label">SMS</p>
 <ul class="menu-list">
     <li><a href="@url('/clickatell')">Clickatell</a></li>
+    <li><a href="@url('/gammu')">Gammu</a></li>
     <li><a href="@url('/jusibe')">Jusibe</a></li>
     <li><a href="@url('/messagebird')">Messagebird</a></li>
     <li><a href="@url('/ovh-sms')">OVH SMS</a></li>
