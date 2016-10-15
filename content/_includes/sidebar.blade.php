@@ -28,6 +28,7 @@
 
 <p class="menu-label">SMS</p>
 <ul class="menu-list">
+    <li><a href="@url('/authy')">Authy</a></li>
     <li><a href="@url('/clickatell')">Clickatell</a></li>
     <li><a href="@url('/gammu')">Gammu</a></li>
     <li><a href="@url('/jusibe')">Jusibe</a></li>
