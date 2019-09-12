@@ -1,5 +1,5 @@
 @extends('_includes.base')
 
 @section('body')
-    @include('_includes.readgh', ['repoName' => 'maillift'])
+    @include('_includes.readgh', ['repoName' => 'maillift', 'deprecated' => true])
 @stop

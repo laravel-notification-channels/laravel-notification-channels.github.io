@@ -39,3 +39,9 @@
         <a href="https://github.com/laravel-notification-channels/{{$repoName}}/edit/master/README.md" style="opacity: 0.4;">Edit</a>
     </div>
 </div>
+
+@if($deprecated)
+    <div class="alert alert-danger">
+        This channel is deprecated. Please the <a class="" href="https://github.com/laravel-notification-channels/{{$repoName}}">GitHub Repo</a> for more infomation
+    </div>
+@endif
