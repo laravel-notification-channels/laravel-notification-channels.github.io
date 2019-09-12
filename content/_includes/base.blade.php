@@ -60,7 +60,7 @@
         <img src="@url('/assets/logo.png')"
              alt="Laravel Notification Channels">
         <h1>Laravel Notification Channels</h1>
-        <h2>A collection of custom drivers for Laravel 5.3</h2>
+        <h2>A collection of custom drivers for Laravel 5.5+ & 6.0+</h2>
         <a href="https://github.com/laravel-notification-channels">
             GitHub
         </a>
@@ -110,7 +110,7 @@
 <footer>
     <div class="container">
         <div class="content">
-            &copy; Copyright {{date('Y')}} Laravel Notification Channels
+            &copy; Copyright {{ date('Y') }} Laravel Notification Channels
         </div>
     </div>
 </footer>
