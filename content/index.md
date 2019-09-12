@@ -43,14 +43,10 @@ Please read and understand the contribution guide before creating an issue or pu
 
 ### Things you should be knowing:
 
- If you need help with anything just ask us. We're nice guys.
-
- [Freek Van der Herten](https://twitter.com/freekmurze)
-
- [Mohamed Said](https://twitter.com/themsaid)
-
- [Marcel Pociot](https://twitter.com/marcelpociot)
-
+ If you need help with anything, you can create an issue on github. If the issue relates to a specific channel, you
+ should create the issue it that repository. A list of [all the channel repos is here](https://github.com/laravel-notification-channels?type=source).
+ 
+ If you have questions about the project in general, please create an issue in the [website repo](https://github.com/laravel-notification-channels/laravel-notification-channels.github.io)
 
 ### What are the rules?
 

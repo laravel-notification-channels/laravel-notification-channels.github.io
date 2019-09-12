@@ -12,7 +12,7 @@
     <li><a href="@url('/pushbullet')">PushBullet</a></li>
     <li><a href="@url('/pusher-push-notifications')">Pusher Push Notifications</a></li>
     <li><a href="@url('/webpush')">WebPush</a></li>
-
+    <li><a href="@url('/apn')">APN</a></li>
 </ul>
 
 <p class="menu-label">Messenger / Chat / Social</p>
@@ -36,6 +36,7 @@
     <li><a href="@url('/plivo')">Plivo</a></li>
     <li><a href="@url('/smsc-ru')">Smsc.ru</a></li>
     <li><a href="@url('/twilio')">Twilio</a></li>
+    <li><a href="@url('/authy')">Authy</a></li>
 </ul>
 
 <p class="menu-label">To-do Lists</p>
