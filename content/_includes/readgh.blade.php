@@ -19,6 +19,8 @@
             $('.realContent').find("h2:contains(" + title + ")").remove();
         });
 
+        $('.realContent img').each(function () {this.src = $(this).attr('src').replace(/^(?!http)/, 'https://raw.githubusercontent.com/laravel-notification-channels/' + file + '/master/')});
+
         $('.realContent').find("a:contains(All Contributors)").closest('li').remove();
 
         $('.realContent').find("h2:contains(Credits)").next('ul').append('<li>All Contributors</li>');
