@@ -11,6 +11,7 @@
     <li><a href="@url('/pushbullet')">PushBullet</a></li>
     <li><a href="@url('/pusher-push-notifications')">Pusher Push Notifications</a></li>
     <li><a href="@url('/webpush')">WebPush</a></li>
+    <li><a href="@url('/pushwoosh')">Pushwoosh</a></li>
 </ul>
 
 <p class="menu-label">Messenger / Chat / Social</p>
