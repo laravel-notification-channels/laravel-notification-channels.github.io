@@ -1,4 +1,8 @@
-# Laravel Notification Channels Website
+# Old Laravel Notification Channels 
+
+This repo contains the old Katana site that was hosted on github pages.
+
+We've moved to netlify & vuepress, and the [new repository is here](https://github.com/laravel-notification-channels/website).
 
 ## Building
 The site uses [Katana](http://themsaid.github.io/katana/).
